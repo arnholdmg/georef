@@ -1,0 +1,72 @@
+@push('styles')
+    <style>
+        #map {
+  height: 600px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+    </style>
+    @endpush
+    @push('scripts')
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvkIkIu1ik_punZArswDQJOR8OWZ1FOQo&callback=initMap&v=weekly" defer></script>
+    <script>
+    function initMap() {
+    const uluru = { lat: -31.755453, lng: -52.316992 };
+    // The map, centered at Uluru
+    
+    function pinSymbol(color) {
+    return {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
+        fillColor: color,
+        fillOpacity: 1,
+        strokeColor: '#FFF',
+        strokeWeight: 2,
+        scale: 1,
+   };
+}
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 16,
+        center: uluru,
+    });
+
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+        label: {
+    text: '1',
+    color: 'black',
+    fontWeight: "bold"
+  }, icon: pinSymbol('#321FDA'),
+    });
+
+    @foreach($areas as $area)
+        const area{{ $area->id }}Coords = [
+            @foreach(explode(';', $area->coords) as $coord)
+            { lat: {{ explode(',', $coord)[0] }}, lng: {{ explode(',', $coord)[1] }} },
+            @endforeach
+        ];
+
+        const area{{ $area->id }} = new google.maps.Polygon({
+            paths: area{{ $area->id }}Coords,
+            strokeColor: "{{ $area->color }}",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "{{ $area->color }}",
+            fillOpacity: 0.35,
+        });
+
+        area{{ $area->id }}.setMap(map);
+    @endforeach
+
+    }
+
+    window.initMap = initMap;
+
+
+
+    
+    </script>
+    @endpush
