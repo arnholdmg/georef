@@ -1,2 +1,2 @@
-postgres/data/*
 docker-compose.yml
+postgres/data/*
