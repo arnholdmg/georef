@@ -5,4 +5,4 @@ RUN apt-get update && apt-get install -y zip unzip libpq-dev && docker-php-ext-i
 
 WORKDIR /var/www/appdata
 
-CMD php-fpm
+ENTRYPOINT ["bash", "/home/php-fpm/entrypoint.sh"]
