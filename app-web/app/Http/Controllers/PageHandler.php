@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Area;
 use App\Models\Group;
 use App\Models\Patient;
+use App\Models\User;
 
 class PageHandler extends Controller
 {
@@ -63,5 +64,22 @@ class PageHandler extends Controller
         $patient = Patient::findOrFail($patient_id);
 
         return view('patient-update', ['patient' => $patient]);
+    }
+
+    public function user()
+    {
+        return view('user');
+    }
+
+    public function userCreate()
+    {
+        return view('user-create');
+    }
+
+    public function userUpdate(int $user_id)
+    {
+        $user = User::findOrFail($user_id);
+
+        return view('user-update', ['user' => $user]);
     }
 }

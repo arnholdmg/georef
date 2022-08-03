@@ -24,4 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/patient', [PageHandler::class, 'patient'])->name('patient');
     Route::get('/patient/create', [PageHandler::class, 'patientCreate'])->name('patient.create');
     Route::get('/patient/{patient}', [PageHandler::class, 'patientUpdate'])->name('patient.update');
+    Route::get('/user', [PageHandler::class, 'user'])->name('user');
+    Route::get('/user/create', [PageHandler::class, 'userCreate'])->name('user.create');
+    Route::get('/user/{user}', [PageHandler::class, 'userUpdate'])->name('user.update');
 });

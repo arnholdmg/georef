@@ -16,7 +16,7 @@
                 <span class="block text-sm uppercase font-bold">Cor</span>
                 <span class="block text-sm">Hexadecimal no formato #FFFFFF.</span>
             </label>
-            <input type="text" name="color" id="color" wire:model="color" class="my-2 block w-full text-sm rounded-md border-1"/>
+            <input type="color" name="color" id="color" wire:model="color" class="my-2 block h-10 w-full text-sm rounded-full border-1"/>
             @error('color')
             <label for="color">
                 <span class="block text-sm text-red-600">{{ $message }}</span>

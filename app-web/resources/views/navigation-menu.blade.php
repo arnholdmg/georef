@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('patient') }}" :active="request()->routeIs('patient')">
                         Pacientes
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
+                        Usuários
+                    </x-jet-nav-link>
                 </div>
             </div>
 
