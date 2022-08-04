@@ -95,11 +95,12 @@
             <label for="area_id">
                 <span class="block text-sm uppercase font-bold">Área</span>
             </label>
-                <select id="area_id" name="area_id"  wire:model="area_id" class="my-2 block w-full text-sm border-1 rounded-md" value="{{ $areas[0]->id }}">
-                    @foreach($areas as $area)
-                    <option value="{{ $area->id }}"><span class="inline-block w-2 h-2 mr-2 rounded-full" style="background-color: {{ $area->color }}"></span>#{{ $area->id }} - {{ $area->name }}</option>
-                    @endforeach
-                </select>
+            <select id="area_id" name="area_id"  wire:model="area_id" class="my-2 block w-full text-sm border-1 rounded-md">
+                <option selected>Selecione uma área...</option>
+                @foreach($areas as $area)
+                <option value="{{ $area->id }}"><span class="inline-block w-2 h-2 mr-2 rounded-full" style="background-color: {{ $area->color }}"></span>#{{ $area->id }} - {{ $area->name }}</option>
+                @endforeach
+            </select>
             @error('area_id')
             <label for="area_id">
                 <span class="block text-sm text-red-600">{{ $message }}</span>
@@ -110,11 +111,12 @@
             <label for="group_id">
                 <span class="block text-sm uppercase font-bold">Grupo</span>
             </label>
-                <select id="group_id" name="group_id"  wire:model="group_id" class="my-2 block w-full text-sm border-1 rounded-md" value="{{ $groups[0]->id }}">
-                    @foreach($groups as $group)
-                    <option value="{{ $group->id }}"><span class="inline-block w-2 h-2 mr-2 rounded-full" style="background-color: {{ $group->color }}"></span>#{{ $group->id }} - {{ $group->name }}</option>
-                    @endforeach
-                </select>
+            <select id="group_id" name="group_id"  wire:model="group_id" class="my-2 block w-full text-sm border-1 rounded-md">
+                <option selected>Selecione uma grupo...</option>
+                @foreach($groups as $group)
+                <option value="{{ $group->id }}"><span class="inline-block w-2 h-2 mr-2 rounded-full" style="background-color: {{ $group->color }}"></span>#{{ $group->id }} - {{ $group->name }}</option>
+                @endforeach
+            </select>
             @error('group_id')
             <label for="group_id">
                 <span class="block text-sm text-red-600">{{ $message }}</span>

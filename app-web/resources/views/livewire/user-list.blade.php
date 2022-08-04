@@ -23,9 +23,9 @@
                 <td class="px-4 py-2 border border-solid border-2">{{ $user->name }}</td>
                 <td class="px-4 py-2 border border-solid border-2">{{ $user->email }}</td>
                 <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmArea) Sim @else Não @endif</td>
-                <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmArea) Sim @else Não @endif</td>
-                <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmArea) Sim @else Não @endif</td>
-                <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmArea) Sim @else Não @endif</td>
+                <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmGroup) Sim @else Não @endif</td>
+                <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmPatient) Sim @else Não @endif</td>
+                <td class="px-4 py-2 border border-solid border-2">@if($user->isAdmUser) Sim @else Não @endif</td>
                 <td class="px-4 py-2 border border-solid border-2">
                     <a href="{{ route('user.update', ['user' => $user->id]) }}" class="px-6 py-3 text-gray-800 bg-transparent hover:underline">
                         Editar

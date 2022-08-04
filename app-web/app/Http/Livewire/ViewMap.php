@@ -24,8 +24,8 @@ class ViewMap extends Component
 
     public function mount()
     {
-        $this->areas = Area::all();
-        $this->groups = Group::all();
+        $this->areas = Area::all()->sortBy('name');
+        $this->groups = Group::all()->sortBy('name');
 
         $this->area_id = $this->areas->map(function ($item, $key){
             return $item->id;
@@ -36,8 +36,6 @@ class ViewMap extends Component
         })->all();
 
         $this->sa = $this->areas->whereIn('id', $this->area_id)->toArray();
-
-        //$this->submit();
     }
     
     public function render()

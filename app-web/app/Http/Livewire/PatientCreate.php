@@ -33,6 +33,7 @@ class PatientCreate extends Component
         'cns.required' => 'CNS não pode ser nulo.',
         'cns.integer' => 'CNS deve ser formado apenas por números.',
         'cns.size' => 'CNS deve possuir quinze dígitos.',
+        'cns.unique' => 'CNS não pode já ter sido cadastrado.',
         'phone.required' => 'Telefone não pode ser nulo.',
         'phone.integer' => 'Telefone deve ser formado apenas por números.',
         'phone.size' => 'Telefone deve possuir no mínimo dez dígitos (com DDD).',
@@ -43,9 +44,9 @@ class PatientCreate extends Component
         'address.regex' => 'Endereço não pode conter caracteres especiais.',
         'coord.required' => 'Coordenadas não podem ser nulas.',
         'area_id.required' => 'Área não pode ser nula.',
-        'area_id.integer' => 'Área deve ser cadastrada.',
+        'area_id.exists' => 'Área deve ser cadastrada.',
         'group_id.required' => 'Grupo não pode ser nulo.',
-        'group_id.integer' => 'Grupo deve ser cadastrado.'
+        'group_id.exists' => 'Grupo deve ser cadastrado.'
     ];
 
     public function mount()
@@ -66,7 +67,7 @@ class PatientCreate extends Component
         $data = $this->validate([
             'name' => 'required|min:4|regex:/^[a-zA-Z0-9áàãâÁÀÃÂéêÉÊíÍóõÓÕúÚç\s]+$/',
             'birth' => 'required|date',
-            'cns' => 'required|integer|digits:15',
+            'cns' => 'required|integer|digits:15|unique:patients,cns',
             'phone' => 'required|integer|min:10',
             'responsible' => 'nullable|regex:/^[ a-zA-Z0-9áàãâÁÀÃÂéêÉÊíÍóõÓÕúÚç\s]+$/',
             'relationship' => 'nullable|regex:/^[a-zA-Z0-9áàãâÁÀÃÂéêÉÊíÍóõÓÕúÚç\s]+$/',
