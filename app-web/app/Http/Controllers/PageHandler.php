@@ -16,6 +16,11 @@ class PageHandler extends Controller
         return view('home');
     }
 
+    public function dashboard()
+    {
+        return redirect()->route('home');
+    }
+
     public function findCoord()
     {
         return view('find-coord');
