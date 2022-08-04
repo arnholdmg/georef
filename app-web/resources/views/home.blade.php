@@ -14,7 +14,7 @@
     </style>
     @endpush
     @push('scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvkIkIu1ik_punZArswDQJOR8OWZ1FOQo&callback=initMap&v=weekly" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env("GOOGLE_MAPS_API_KEY")}}&callback=initMap&v=weekly" defer></script>
     @endpush
 </x-app-layout>
 
