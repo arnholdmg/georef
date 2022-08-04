@@ -59,7 +59,7 @@ class PatientSeeder extends Seeder
             'relationship' => 'Pai',
             'address' => 'Rua Justino Sereno Ribeiro 01, Areal - Pelotas',
             'coord' => '-31.758683,-52.307725',
-            'area_id' => '2',
+            'area_id' => '6',
             'group_id' => '3'
         ]);
     }
