@@ -15,6 +15,7 @@ use App\Http\Controllers\PageHandler;
 */
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/', [PageHandler::class, 'home'])->name('home');
+    Route::get('/coord', [PageHandler::class, 'findCoord'])->name('coord');
     Route::middleware('isadmin:area')->group(function (){
         Route::get('/area', [PageHandler::class, 'area'])->name('area');
         Route::get('/area/create', [PageHandler::class, 'areaCreate'])->name('area.create');

@@ -26,7 +26,7 @@
         <div class="mb-6">
             <label for="coords">
                 <span class="block text-sm uppercase font-bold">Coordenadas</span>
-                <span class="block text-sm">Formato lat,long;lat2,long2;lat3,long3...</span>
+                <span class="block text-sm">Formato lat,long;lat2,long2;lat3,long3... (<a target="_blank" class="hover:underline" href="{{ route('coord') }}">Procurar Coordenada</a>)</span>
             </label>
             <input type="text" name="coords" id="coords" wire:model="coords" class="my-2 block w-full text-sm rounded-md border-1"/>
             @error('coords')

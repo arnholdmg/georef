@@ -33,6 +33,14 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="flex items-start items-center mb-2">
+                        <div class="flex my-0 h-5">
+                            <input type="checkbox" class="h-4 w-4 border-transparent rounded" disabled>
+                        </div>
+                        <div class="flex items-center ml-3 my-0 text-sm">
+                            <label class="font-medium text-gray-700 align-middle"><span class="inline-block w-6 h-3 mr-2 rounded-md" style="background-color: black"></span>Endereço com mais de um grupo</label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="bg-white px-4 py-4 rounded sm:px-6 lg:px-8">
@@ -40,6 +48,9 @@
                     <span class="block text-sm uppercase font-bold">PACIENTE</span>
                 </label>
                 <input type="text" name="search" id="search" wire:model.lazy="search" class="my-2 block w-full text-sm rounded-md border-1" placeholder="Pesquisar pelo nome, CNS ou telefone..."/>
+                <label>
+                    <span class="block text-sm uppercase mt-6 text-center">Endereços com mais de um paciente terão um indicador númerico abaixo.</span>
+                </label>
             </div>
             <div class="md:col-start-2 items-center my-0">
                 <button type="submit" class="px-6 py-3 block w-full text-center text-white rounded-full bg-blue-700 hover:bg-blue-800">
@@ -48,6 +59,7 @@
             </div>
         </div>
     </form>
+
     
     @push('scripts')
     <script>

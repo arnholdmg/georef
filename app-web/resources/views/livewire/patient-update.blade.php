@@ -82,7 +82,7 @@
         <div class="mb-6">
             <label for="coord">
                 <span class="block text-sm uppercase font-bold">Coordenada</span>
-                <span class="block text-sm">Formato lat,long.</span>
+                <span class="block text-sm">Formato lat,long. (<a target="_blank" class="hover:underline" href="{{ route('coord') }}">Procurar Coordenada</a>)</span>
             </label>
             <input type="text" name="coord" id="coord" wire:model="coord" class="my-2 block w-full text-sm rounded-md border-1"/>
             @error('coord')
