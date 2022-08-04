@@ -7,6 +7,7 @@ use App\Models\Area;
 use App\Models\Group;
 use App\Models\Patient;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PageHandler extends Controller
 {
@@ -79,7 +80,11 @@ class PageHandler extends Controller
     public function userUpdate(int $user_id)
     {
         $user = User::findOrFail($user_id);
-
-        return view('user-update', ['user' => $user]);
+        
+        if($user->id == 1 || $user->id == Auth::user()->id){
+            return redirect()->route('user');
+        } else {
+            return view('user-update', ['user' => $user]);
+        }
     }
 }
